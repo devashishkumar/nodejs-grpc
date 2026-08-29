@@ -161,9 +161,9 @@ client.getUser({ id: 1 }, (err, response) => {
 ```json
 {
   "id": 1,
-  "name": "Alice Johnson",
-  "email": "alice@example.com",
-  "phone": "555-0101"
+  "name": "Name1",
+  "email": "name1@example.com",
+  "phone": "1234567890"
 }
 ```
 
@@ -206,15 +206,15 @@ client.listUsers({}, (err, response) => {
   "users": [
     {
       "id": 1,
-      "name": "Alice Johnson",
-      "email": "alice@example.com",
-      "phone": "555-0101"
+      "name": "Name1",
+      "email": "name1@example.com",
+      "phone": "1234567890"
     },
     {
       "id": 2,
-      "name": "Bob Smith",
-      "email": "bob@example.com",
-      "phone": "555-0102"
+      "name": "Name2",
+      "email": "name2@example.com",
+      "phone": "2345678901"
     }
   ]
 }
@@ -311,9 +311,9 @@ stream.on('error', (err) => {
 
 **Response (Multiple Messages in Stream):**
 ```
-Chunk 1: { id: 1, name: "Alice Johnson", email: "alice@example.com", phone: "555-0101" }
-Chunk 2: { id: 2, name: "Bob Smith", email: "bob@example.com", phone: "555-0102" }
-Chunk 3: { id: 3, name: "Charlie Brown", email: "charlie@example.com", phone: "555-0103" }
+Chunk 1: { id: 1, name: "Name1", email: "name1@example.com", phone: "1234567890" }
+Chunk 2: { id: 2, name: "Name2", email: "name2@example.com", phone: "2345678901" }
+Chunk 3: { id: 3, name: "Name3", email: "name3@example.com", phone: "3456789012" }
 ...and so on
 ```
 
@@ -351,7 +351,7 @@ npm run client
 ```
 
 This will:
-1. Call `GetUser` with ID 1 → Returns Alice Johnson
+1. Call `GetUser` with ID 1 → Returns Name1
 2. Call `ListUsers` → Returns all users at once
 3. Call `CreateUser` → Creates Frank Castle (auto-generated ID)
 4. Call `ListUsers` again → Shows updated user list
