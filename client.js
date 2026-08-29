@@ -57,7 +57,7 @@ async function main() {
     console.log('\n📝 Testing CreateUser RPC...');
     client.createUser(
       {
-        name: 'name6',
+        name: 'Name6',
         email: 'name6@example.com',
         phone: '6789012345'
       },

@@ -17,6 +17,10 @@ A complete Node.js application demonstrating gRPC communication between a client
 - [Development](#development)
 - [Troubleshooting](#troubleshooting)
 - [Technical Details](#technical-details)
+- [Learning Resources](#learning-resources)
+- [License](#license)
+- [Contributing](#contributing)
+- [Future Enhancements](#future-enhancements)
 
 ## 📁 Project Structure
 
@@ -245,9 +249,9 @@ message UserResponse {
 ```javascript
 client.createUser(
   {
-    name: 'Frank Castle',
-    email: 'frank@example.com',
-    phone: '555-0106'
+    name: 'Name6',
+    email: 'name6@example.com',
+    phone: '6789012345'
   },
   (err, response) => {
     if (err) console.error('Error:', err.message);
@@ -260,9 +264,9 @@ client.createUser(
 ```json
 {
   "id": 6,
-  "name": "Frank Castle",
-  "email": "frank@example.com",
-  "phone": "555-0106"
+  "name": "Name6",
+  "email": "name6@example.com",
+  "phone": "6789012345"
 }
 ```
 
@@ -324,11 +328,11 @@ The server comes pre-loaded with 5 users in the mock database:
 
 | ID | Name | Email | Phone |
 |----|------|-------|-------|
-| 1 | Alice Johnson | alice@example.com | 555-0101 |
-| 2 | Bob Smith | bob@example.com | 555-0102 |
-| 3 | Charlie Brown | charlie@example.com | 555-0103 |
-| 4 | Diana Prince | diana@example.com | 555-0104 |
-| 5 | Eve Wilson | eve@example.com | 555-0105 |
+| 1 | Name1 | name1@example.com | 1234567890 |
+| 2 | Name2 | name2@example.com | 2345678901 |
+| 3 | Name3 | name3@example.com | 3456789012 |
+| 4 | Name4 | name4@example.com | 4567890123 |
+| 5 | Name5 | name5@example.com | 5678901234 |
 
 ### Adding New Users
 
@@ -643,8 +647,3 @@ Possible improvements and extensions to this project:
 10. **Metrics**: Add Prometheus metrics for monitoring
 
 ---
-
-**Created**: 2024
-**Last Updated**: 2026-08-29
-**Status**: Production Ready ✅
-**Features**: Unary RPC + Server-side Streaming RPC
