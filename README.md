@@ -28,48 +28,58 @@ A complete Node.js application demonstrating gRPC communication between a client
 gRPC-apis/
 ├── package.json          # NPM project configuration with dependencies
 ├── user.proto            # Protocol Buffer definition for UserService
-├── server.js             # gRPC server with UserService implementation
+├── server.js             # gRPC server with mock UserService implementation
+├── server-db.js          # gRPC server with PostgreSQL database integration
 ├── client.js             # gRPC client for testing the server
 └── README.md             # This documentation file
 ```
 
 ## ✨ Features
 
-### gRPC Server (`server.js`)
+### gRPC Server Options
+
+#### Mock Data Server (`server.js`)
 
 - **Port**: 50051
 - **Credentials**: Insecure (development only)
-- **Four RPC Methods**:
-  - `GetUser(id)` - Retrieve a single user by ID (Unary RPC)
-  - `ListUsers()` - Retrieve all users at once (Unary RPC)
-  - `CreateUser(name, email, phone)` - Create a new user with auto-generated ID (Unary RPC)
-  - `StreamUsers()` - Stream all users in chunks (Server-side Streaming RPC)
+- **Storage**: In-memory mock data (resets on server restart)
+- **Use Case**: Testing, development, and learning gRPC concepts
+
+#### Database Server (`server-db.js`)
+
+- **Port**: 50051
+- **Credentials**: Insecure (development only)
+- **Storage**: PostgreSQL database
+- **Use Case**: Production-ready implementation with persistent data storage
+- **Database Connection**: Uses `DATABASE_URL` environment variable or defaults to `postgresql://user:password@localhost:5432/mydb`
+
+### Supported RPC Methods
+
+Both servers implement four RPC methods:
+
+- `GetUser(id)` - Retrieve a single user by ID (Unary RPC)
+- `ListUsers()` - Retrieve all users at once (Unary RPC)
+- `CreateUser(name, email, phone)` - Create a new user with auto-generated ID (Unary RPC)
+- `StreamUsers()` - Stream all users in chunks (Server-side Streaming RPC)
 
 ### Mock Database
 
-- 5 pre-loaded users with realistic data
-- In-memory storage (resets on server restart)
+- 5 pre-loaded users with realistic data (server.js only)
 - Auto-incrementing user ID for new users
 - All user data includes: id, name, email, phone
-
-### gRPC Client (`client.js`)
-
-- Demonstrates all 3 RPC methods
-- Shows proper error handling (tests retrieving non-existent user)
-- Handles async callback-based responses
-- Formatted output for easy visualization
 
 ## 📦 Prerequisites
 
 - **Node.js** version 12.0.0 or higher
 - **npm** version 6.0.0 or higher
+- **PostgreSQL** 10.0 or higher (required only for `server-db.js`)
 
 ## 🚀 Installation
 
 ### Step 1: Navigate to project directory
 
 ```bash
-cd "e:\apps\node js\gRPC-apis"
+cd "gRPC-apis"
 ```
 
 ### Step 2: Install dependencies
@@ -82,6 +92,7 @@ This will install:
 - `@grpc/grpc-js` (v1.10.0) - gRPC runtime for Node.js
 - `@grpc/proto-loader` (v0.7.10) - Loads and parses .proto files
 - `nodemon` (v3.0.1) - Development dependency for auto-restart
+- `pg` (v8.23.0) - For database connectivity
 
 ### Dependency Details
 
@@ -90,6 +101,7 @@ This will install:
 | @grpc/grpc-js | ^1.10.0 | Core gRPC framework for Node.js |
 | @grpc/proto-loader | ^0.7.10 | Loads Protocol Buffer definitions |
 | nodemon | ^3.0.1 | Auto-restarts server on file changes (dev only) |
+| pg | ^8.23.0 | PostgreSQL client for database connectivity and features |
 
 ## ▶️ Running the Application
 
@@ -103,6 +115,12 @@ Or alternatively:
 
 ```bash
 node server.js
+```
+
+For Database (persistent data storage):
+
+```bash
+node server-db.js
 ```
 
 **Expected output:**
