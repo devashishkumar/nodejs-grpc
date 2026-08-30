@@ -92,7 +92,7 @@ This will install:
 - `@grpc/grpc-js` (v1.10.0) - gRPC runtime for Node.js
 - `@grpc/proto-loader` (v0.7.10) - Loads and parses .proto files
 - `nodemon` (v3.0.1) - Development dependency for auto-restart
-- `pg` (v8.23.0) - For database connectivity
+- `pg` (v8.23.0) - PostgreSQL client
 
 ### Dependency Details
 
