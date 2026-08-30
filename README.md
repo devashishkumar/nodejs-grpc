@@ -120,7 +120,7 @@ node server.js
 For Database (persistent data storage):
 
 ```bash
-node server-db.js
+node run server-db.js
 ```
 
 **Expected output:**
